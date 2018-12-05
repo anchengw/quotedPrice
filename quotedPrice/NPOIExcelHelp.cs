@@ -335,9 +335,10 @@ namespace quotedPrice
         /// 读取2007Excel[.xlsx]或读取2003Excel[.xls](返回DataTable)
         /// </summary>
         /// <param name="path">Excel路径</param>
+        /// <param name="sheetName">表名</param>
         /// <param name="isheader">第一行是否列名，否表默认列名为column1，column2等</param>
         /// <returns>表</returns>
-        private static DataTable ReadExcel(string path, bool isheader)
+        public static DataTable ReadExcel(string path,string sheetName, bool isheader)
         {
             try
             {
@@ -347,7 +348,11 @@ namespace quotedPrice
                     //IWorkbook workbook = new XSSFWorkbook(fs);//2007
                     //IWorkbook workbook = new HSSFWorkbook(fs);//2003
                     IWorkbook workbook = WorkbookFactory.Create(fs);//工厂模式
-                    ISheet sheet = workbook.GetSheetAt(0); //取第一个工作表
+                    ISheet sheet;
+                    if (string.IsNullOrEmpty(sheetName))
+                       sheet = workbook.GetSheetAt(0); //取第一个工作表
+                    else
+                       sheet = workbook.GetSheet(sheetName);
                     IFormulaEvaluator evaluator = WorkbookFactory.CreateFormulaEvaluator(workbook);
                     int rfirst = sheet.FirstRowNum;//工作表第一行
                     int rlast = sheet.LastRowNum; //工作表最后一行
@@ -426,7 +431,7 @@ namespace quotedPrice
             IWorkbook workbook = CreateWorkbook(ExcelPath);           
             if (workbook == null)
                 return;
-            ISheet sheet = workbook.CreateSheet(string.IsNullOrWhiteSpace(dt.TableName) ? "Sheet1" : dt.TableName);
+            ISheet sheet = workbook.CreateSheet(string.IsNullOrEmpty(dt.TableName) ? "Sheet1" : dt.TableName);
             //建立Eexcel表头行
             IRow headerRow = sheet.CreateRow(0);
             foreach (DataColumn column in dt.Columns)

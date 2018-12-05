@@ -61,8 +61,7 @@
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT   工程关键字,  工程名称, 客户名称, 客户地址,  联系方式, 工程负责人, 创建日期, 备注, 税前合计, 税金, 
-                总计, 税率
+                    <CommandText>SELECT   工程关键字, 工程名称, 客户名称, 客户地址, 联系方式, 工程负责人, 创建日期, 备注, 税前合计, 税金, 总计, 税率
 FROM      GCB</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -458,7 +457,7 @@ FROM      ((GCB INNER JOIN
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="GCB" msprop:Generator_TableClassName="GCBDataTable" msprop:Generator_TableVarName="tableGCB" msprop:Generator_TablePropName="GCB" msprop:Generator_RowDeletingName="GCBRowDeleting" msprop:Generator_RowChangingName="GCBRowChanging" msprop:Generator_RowEvHandlerName="GCBRowChangeEventHandler" msprop:Generator_RowDeletedName="GCBRowDeleted" msprop:Generator_UserTableName="GCB" msprop:Generator_RowChangedName="GCBRowChanged" msprop:Generator_RowEvArgName="GCBRowChangeEvent" msprop:Generator_RowClassName="GCBRow">
+        <xs:element name="GCB" msprop:Generator_TableClassName="GCBDataTable" msprop:Generator_TableVarName="tableGCB" msprop:Generator_RowChangedName="GCBRowChanged" msprop:Generator_TablePropName="GCB" msprop:Generator_RowDeletingName="GCBRowDeleting" msprop:Generator_RowChangingName="GCBRowChanging" msprop:Generator_RowEvHandlerName="GCBRowChangeEventHandler" msprop:Generator_RowDeletedName="GCBRowDeleted" msprop:Generator_RowClassName="GCBRow" msprop:Generator_UserTableName="GCB" msprop:Generator_RowEvArgName="GCBRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="工程关键字" msprop:Generator_ColumnVarNameInTable="column工程关键字" msprop:Generator_ColumnPropNameInRow="工程关键字" msprop:Generator_ColumnPropNameInTable="工程关键字Column" msprop:Generator_UserColumnName="工程关键字">
@@ -478,18 +477,18 @@ FROM      ((GCB INNER JOIN
               <xs:element name="客户名称" msprop:Generator_ColumnVarNameInTable="column客户名称" msprop:Generator_ColumnPropNameInRow="客户名称" msprop:Generator_ColumnPropNameInTable="客户名称Column" msprop:Generator_UserColumnName="客户名称" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="8" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="客户地址" msprop:Generator_ColumnVarNameInTable="column客户地址" msprop:Generator_ColumnPropNameInRow="客户地址" msprop:Generator_ColumnPropNameInTable="客户地址Column" msprop:Generator_UserColumnName="客户地址" minOccurs="0">
+              <xs:element name="客户地址" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="客户地址" msprop:Generator_ColumnVarNameInTable="column客户地址" msprop:Generator_ColumnPropNameInTable="客户地址Column" msprop:Generator_UserColumnName="客户地址" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="联系方式" msprop:Generator_ColumnVarNameInTable="column联系方式" msprop:Generator_ColumnPropNameInRow="联系方式" msprop:Generator_ColumnPropNameInTable="联系方式Column" msprop:Generator_UserColumnName="联系方式" minOccurs="0">
+              <xs:element name="联系方式" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="联系方式" msprop:Generator_ColumnVarNameInTable="column联系方式" msprop:Generator_ColumnPropNameInTable="联系方式Column" msprop:Generator_UserColumnName="联系方式" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -518,7 +517,7 @@ FROM      ((GCB INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PARTS" msprop:Generator_TableClassName="PARTSDataTable" msprop:Generator_TableVarName="tablePARTS" msprop:Generator_TablePropName="PARTS" msprop:Generator_RowDeletingName="PARTSRowDeleting" msprop:Generator_RowChangingName="PARTSRowChanging" msprop:Generator_RowEvHandlerName="PARTSRowChangeEventHandler" msprop:Generator_RowDeletedName="PARTSRowDeleted" msprop:Generator_UserTableName="PARTS" msprop:Generator_RowChangedName="PARTSRowChanged" msprop:Generator_RowEvArgName="PARTSRowChangeEvent" msprop:Generator_RowClassName="PARTSRow">
+        <xs:element name="PARTS" msprop:Generator_TableClassName="PARTSDataTable" msprop:Generator_TableVarName="tablePARTS" msprop:Generator_RowChangedName="PARTSRowChanged" msprop:Generator_TablePropName="PARTS" msprop:Generator_RowDeletingName="PARTSRowDeleting" msprop:Generator_RowChangingName="PARTSRowChanging" msprop:Generator_RowEvHandlerName="PARTSRowChangeEventHandler" msprop:Generator_RowDeletedName="PARTSRowDeleted" msprop:Generator_RowClassName="PARTSRow" msprop:Generator_UserTableName="PARTS" msprop:Generator_RowEvArgName="PARTSRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="关键字" msprop:Generator_ColumnVarNameInTable="column关键字" msprop:Generator_ColumnPropNameInRow="关键字" msprop:Generator_ColumnPropNameInTable="关键字Column" msprop:Generator_UserColumnName="关键字">
@@ -606,7 +605,7 @@ FROM      ((GCB INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="XMB" msprop:Generator_TableClassName="XMBDataTable" msprop:Generator_TableVarName="tableXMB" msprop:Generator_TablePropName="XMB" msprop:Generator_RowDeletingName="XMBRowDeleting" msprop:Generator_RowChangingName="XMBRowChanging" msprop:Generator_RowEvHandlerName="XMBRowChangeEventHandler" msprop:Generator_RowDeletedName="XMBRowDeleted" msprop:Generator_UserTableName="XMB" msprop:Generator_RowChangedName="XMBRowChanged" msprop:Generator_RowEvArgName="XMBRowChangeEvent" msprop:Generator_RowClassName="XMBRow">
+        <xs:element name="XMB" msprop:Generator_TableClassName="XMBDataTable" msprop:Generator_TableVarName="tableXMB" msprop:Generator_RowChangedName="XMBRowChanged" msprop:Generator_TablePropName="XMB" msprop:Generator_RowDeletingName="XMBRowDeleting" msprop:Generator_RowChangingName="XMBRowChanging" msprop:Generator_RowEvHandlerName="XMBRowChangeEventHandler" msprop:Generator_RowDeletedName="XMBRowDeleted" msprop:Generator_RowClassName="XMBRow" msprop:Generator_UserTableName="XMB" msprop:Generator_RowEvArgName="XMBRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="项目关键字" msprop:Generator_ColumnVarNameInTable="column项目关键字" msprop:Generator_ColumnPropNameInRow="项目关键字" msprop:Generator_ColumnPropNameInTable="项目关键字Column" msprop:Generator_UserColumnName="项目关键字">
@@ -626,7 +625,7 @@ FROM      ((GCB INNER JOIN
               <xs:element name="项目编码" msprop:Generator_ColumnVarNameInTable="column项目编码" msprop:Generator_ColumnPropNameInRow="项目编码" msprop:Generator_ColumnPropNameInTable="项目编码Column" msprop:Generator_UserColumnName="项目编码" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -669,7 +668,7 @@ FROM      ((GCB INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProjectDetail" msprop:Generator_TableClassName="ProjectDetailDataTable" msprop:Generator_TableVarName="tableProjectDetail" msprop:Generator_TablePropName="ProjectDetail" msprop:Generator_RowDeletingName="ProjectDetailRowDeleting" msprop:Generator_RowChangingName="ProjectDetailRowChanging" msprop:Generator_RowEvHandlerName="ProjectDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectDetailRowDeleted" msprop:Generator_UserTableName="ProjectDetail" msprop:Generator_RowChangedName="ProjectDetailRowChanged" msprop:Generator_RowEvArgName="ProjectDetailRowChangeEvent" msprop:Generator_RowClassName="ProjectDetailRow">
+        <xs:element name="ProjectDetail" msprop:Generator_TableClassName="ProjectDetailDataTable" msprop:Generator_TableVarName="tableProjectDetail" msprop:Generator_RowChangedName="ProjectDetailRowChanged" msprop:Generator_TablePropName="ProjectDetail" msprop:Generator_RowDeletingName="ProjectDetailRowDeleting" msprop:Generator_RowChangingName="ProjectDetailRowChanging" msprop:Generator_RowEvHandlerName="ProjectDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectDetailRowDeleted" msprop:Generator_RowClassName="ProjectDetailRow" msprop:Generator_UserTableName="ProjectDetail" msprop:Generator_RowEvArgName="ProjectDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="工程名称" msprop:Generator_ColumnVarNameInTable="column工程名称" msprop:Generator_ColumnPropNameInRow="工程名称" msprop:Generator_ColumnPropNameInTable="工程名称Column" msprop:Generator_UserColumnName="工程名称" minOccurs="0">
@@ -682,7 +681,7 @@ FROM      ((GCB INNER JOIN
               <xs:element name="客户名称" msprop:Generator_ColumnVarNameInTable="column客户名称" msprop:Generator_ColumnPropNameInRow="客户名称" msprop:Generator_ColumnPropNameInTable="客户名称Column" msprop:Generator_UserColumnName="客户名称" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="8" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -714,14 +713,14 @@ FROM      ((GCB INNER JOIN
               <xs:element name="成型尺寸l1" msprop:Generator_ColumnVarNameInTable="column成型尺寸l1" msprop:Generator_ColumnPropNameInRow="成型尺寸l1" msprop:Generator_ColumnPropNameInTable="成型尺寸l1Column" msprop:Generator_UserColumnName="成型尺寸l1" type="xs:float" minOccurs="0" />
               <xs:element name="成型尺寸l2" msprop:Generator_ColumnVarNameInTable="column成型尺寸l2" msprop:Generator_ColumnPropNameInRow="成型尺寸l2" msprop:Generator_ColumnPropNameInTable="成型尺寸l2Column" msprop:Generator_UserColumnName="成型尺寸l2" type="xs:float" minOccurs="0" />
               <xs:element name="成型面积" msprop:Generator_ColumnVarNameInTable="column成型面积" msprop:Generator_ColumnPropNameInRow="成型面积" msprop:Generator_ColumnPropNameInTable="成型面积Column" msprop:Generator_UserColumnName="成型面积" type="xs:double" minOccurs="0" />
-              <xs:element name="材料" msprop:Generator_ColumnVarNameInTable="column材料" msprop:Generator_ColumnPropNameInRow="材料" msprop:Generator_ColumnPropNameInTable="材料Column" msprop:Generator_UserColumnName="材料" minOccurs="0">
+              <xs:element name="材料" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="材料" msprop:Generator_ColumnVarNameInTable="column材料" msprop:Generator_ColumnPropNameInTable="材料Column" msprop:Generator_UserColumnName="材料" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="图层名称" msprop:Generator_ColumnVarNameInTable="column图层名称" msprop:Generator_ColumnPropNameInRow="图层名称" msprop:Generator_ColumnPropNameInTable="图层名称Column" msprop:Generator_UserColumnName="图层名称" minOccurs="0">
+              <xs:element name="图层名称" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="图层名称" msprop:Generator_ColumnVarNameInTable="column图层名称" msprop:Generator_ColumnPropNameInTable="图层名称Column" msprop:Generator_UserColumnName="图层名称" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -735,21 +734,21 @@ FROM      ((GCB INNER JOIN
               <xs:element name="创建日期" msprop:Generator_ColumnVarNameInTable="column创建日期" msprop:Generator_ColumnPropNameInRow="创建日期" msprop:Generator_ColumnPropNameInTable="创建日期Column" msprop:Generator_UserColumnName="创建日期" type="xs:dateTime" minOccurs="0" />
               <xs:element name="工程总计" msprop:Generator_ColumnVarNameInTable="column工程总计" msprop:Generator_ColumnPropNameInRow="工程总计" msprop:Generator_ColumnPropNameInTable="工程总计Column" msprop:Generator_UserColumnName="工程总计" type="xs:double" minOccurs="0" />
               <xs:element name="项目总计" msprop:Generator_ColumnVarNameInTable="column项目总计" msprop:Generator_ColumnPropNameInRow="项目总计" msprop:Generator_ColumnPropNameInTable="项目总计Column" msprop:Generator_UserColumnName="项目总计" type="xs:double" minOccurs="0" />
-              <xs:element name="颜色" msprop:Generator_ColumnVarNameInTable="column颜色" msprop:Generator_ColumnPropNameInRow="颜色" msprop:Generator_ColumnPropNameInTable="颜色Column" msprop:Generator_UserColumnName="颜色" minOccurs="0">
+              <xs:element name="颜色" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="颜色" msprop:Generator_ColumnVarNameInTable="column颜色" msprop:Generator_ColumnPropNameInTable="颜色Column" msprop:Generator_UserColumnName="颜色" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="品牌" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="品牌" msprop:Generator_ColumnVarNameInTable="column品牌" msprop:Generator_ColumnPropNameInTable="品牌Column" msprop:Generator_UserColumnName="品牌" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="品牌" msprop:Generator_ColumnVarNameInTable="column品牌" msprop:Generator_ColumnPropNameInRow="品牌" msprop:Generator_ColumnPropNameInTable="品牌Column" msprop:Generator_UserColumnName="品牌" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="备注" msprop:Generator_ColumnVarNameInTable="column备注" msprop:Generator_ColumnPropNameInRow="备注" msprop:Generator_ColumnPropNameInTable="备注Column" msprop:Generator_UserColumnName="备注" minOccurs="0">
+              <xs:element name="备注" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="备注" msprop:Generator_ColumnVarNameInTable="column备注" msprop:Generator_ColumnPropNameInTable="备注Column" msprop:Generator_UserColumnName="备注" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />

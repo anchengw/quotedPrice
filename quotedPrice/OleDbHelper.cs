@@ -38,11 +38,54 @@ namespace quotedPrice
                 Application.StartupPath);
         }
 
-	    #region private utility methods & constructors
-
-		//Since this class provides only static methods, make the default constructor private to prevent 
-		//instances from being created with "new OleDbHelper()".
-		private OleDbHelper() {}
+        #region private utility methods & constructors
+        /// <summary>
+        /// 批量事务执行SQL语句
+        /// </summary>
+        public static bool BatchExecuteNonQuery(OleDbConnection Conn, ArrayList ALSql)
+        {
+            if (Conn.State != ConnectionState.Open)
+            {
+                try
+                {
+                    Conn.Open();
+                }
+                catch
+                {
+                    throw new Exception("数据库无法连接");
+                }
+            }
+            bool state = false;
+            OleDbTransaction transaction = null;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand();
+                transaction = Conn.BeginTransaction();
+                cmd.Transaction = transaction;
+                cmd.Connection = Conn;
+                cmd.CommandType = CommandType.Text;
+                for (int i = 0; i < ALSql.Count; i++)
+                {
+                    cmd.CommandText = ALSql[i].ToString();
+                    cmd.ExecuteNonQuery();
+                }
+                transaction.Commit();
+                state = true;
+            }
+            catch
+            {
+                state = false;
+                transaction.Rollback();
+            }
+            finally
+            {
+                Conn.Close();
+            }
+            return state;
+        }
+        //Since this class provides only static methods, make the default constructor private to prevent 
+        //instances from being created with "new OleDbHelper()".
+        private OleDbHelper() {}
 
 		/// <summary>
 		/// This method is used to attach array's of OleDbParameters to an OleDbCommand.

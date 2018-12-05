@@ -94,6 +94,7 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 55);
+            this.toolStripSeparator4.Visible = false;
             // 
             // btnUnits
             // 
@@ -103,11 +104,13 @@
             this.btnUnits.Size = new System.Drawing.Size(132, 52);
             this.btnUnits.Tag = "1";
             this.btnUnits.Text = "计量单位维护";
+            this.btnUnits.Visible = false;
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 55);
+            this.toolStripSeparator3.Visible = false;
             // 
             // btnQueryPrint
             // 
@@ -117,6 +120,7 @@
             this.btnQueryPrint.Size = new System.Drawing.Size(108, 52);
             this.btnQueryPrint.Tag = "7";
             this.btnQueryPrint.Text = "打印导出";
+            this.btnQueryPrint.Visible = false;
             // 
             // toolStripSeparator2
             // 

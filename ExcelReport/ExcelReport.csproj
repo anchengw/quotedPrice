@@ -82,12 +82,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NPOI.Extend\NPOI.Extend.csproj">
-      <Project>{1aac215a-ad94-4037-92a1-e913199d7091}</Project>
-      <Name>NPOI.Extend</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

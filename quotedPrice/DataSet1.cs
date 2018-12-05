@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace quotedPrice
 {
@@ -7,17 +10,16 @@ namespace quotedPrice
     //GcysConnectionString
     partial class DataSet1
     {
-        partial class ProjectDetailDataTable
-        {
-        }
+
     }
 }
 namespace quotedPrice.DataSet1TableAdapters
 {
     partial class ProjectDetailTableAdapter
     {
-        public int GetProjectDetails(string projectKey, DataSet1.ProjectDetailDataTable table)
+        public int GetProjectDetails(string []projectKey, DataSet1.ProjectDetailDataTable table)
         {
+            //WHERE GCB.工程关键字 in (@ProjectKey)
             string strSql =
                 @"SELECT   GCB.工程名称, GCB.客户名称, GCB.总计 AS 工程总计, XMB.项目名称, XMB.合计金额 AS 项目总计, PARTS.部件名称, 
                 PARTS.长度, PARTS.宽度, PARTS.厚度, PARTS.单位, PARTS.数量, PARTS.成型尺寸l1, PARTS.成型尺寸l2, 
@@ -26,10 +28,13 @@ namespace quotedPrice.DataSet1TableAdapters
                 FROM      ((GCB INNER JOIN
                 XMB ON GCB.工程关键字 = XMB.工程关键字) INNER JOIN
                 PARTS ON GCB.工程关键字 = PARTS.工程关键字 AND XMB.项目关键字 = PARTS.项目关键字)
-                WHERE GCB.工程关键字 = @ProjectKey
-                ORDER BY XMB.项目名称";
-            var comm = new OleDbCommand(strSql, Connection);
-            comm.Parameters.Add(new OleDbParameter("@ProjectKey", OleDbType.WChar, 10) { Value = projectKey });
+                WHERE GCB.工程关键字 in (@ProjectKey)
+                ORDER BY XMB.序号";
+            string key = String.Join("','", projectKey);
+            key = "'" + key + "'";
+            strSql = strSql.Replace("@ProjectKey", key);
+            var comm = new OleDbCommand(strSql, Connection);          
+            //comm.Parameters.Add(new OleDbParameter("@ProjectKey", OleDbType.WChar, 10) { Value = key });
             Adapter.SelectCommand = comm;
             if (ClearBeforeFill)
                 table.Clear();
@@ -60,7 +65,7 @@ namespace quotedPrice.DataSet1TableAdapters
         //取项目表的工程关键字
         public int GetSubProjects(string projectKey, DataSet1.XMBDataTable table)
         {
-            Adapter.SelectCommand = new OleDbCommand("select * from XMB Where [工程关键字] = :ProjectKey order by [统计标志]"
+            Adapter.SelectCommand = new OleDbCommand("select * from XMB Where [工程关键字] = :ProjectKey order by [序号]"
                 , Connection);
             Adapter.SelectCommand.Parameters.Add(":ProjectKey", OleDbType.WChar, 10);
             Adapter.SelectCommand.Parameters[0].Value = projectKey;
@@ -141,7 +146,47 @@ namespace quotedPrice.DataSet1TableAdapters
             Connection.Close();
             return str;
         }
-
+        public bool DeleteProject(ArrayList ALSql)
+        {
+            if (Connection.State != ConnectionState.Open)
+            {
+                try
+                {
+                    Connection.Open();
+                }
+                catch
+                {
+                    throw new Exception("数据库无法连接");
+                }
+            }
+            bool state = false;
+            OleDbTransaction transaction = null;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand();
+                transaction = Connection.BeginTransaction();
+                cmd.Transaction = transaction;
+                cmd.Connection = Connection;
+                cmd.CommandType = CommandType.Text;
+                for (int i = 0; i < ALSql.Count; i++)
+                {
+                    cmd.CommandText = ALSql[i].ToString();
+                    cmd.ExecuteNonQuery();
+                }
+                transaction.Commit();
+                state = true;
+            }
+            catch
+            {
+                state = false;
+                transaction.Rollback();
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return state;
+        }
         public int DeleteProject(DataSet1.GCBRow row)
         {
             var comm = new OleDbCommand("Delete from PARTS where [工程关键字] = :ProjectKey", Connection);

@@ -45,6 +45,7 @@
             this.dataSet1 = new quotedPrice.DataSet1();
             this.gCBTableAdapter = new quotedPrice.DataSet1TableAdapters.GCBTableAdapter();
             this.dataGridView1 = new ProjectBudget.ScrollDataGrid(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.客户名称DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,7 +83,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(450, 15);
+            this.button7.Location = new System.Drawing.Point(371, 14);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 36);
             this.button7.TabIndex = 12;
@@ -93,7 +94,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(897, 15);
+            this.button4.Location = new System.Drawing.Point(816, 14);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 36);
             this.button4.TabIndex = 11;
@@ -103,7 +104,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(612, 14);
+            this.btnExit.Location = new System.Drawing.Point(533, 14);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 36);
             this.btnExit.TabIndex = 7;
@@ -113,7 +114,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(531, 15);
+            this.button5.Location = new System.Drawing.Point(452, 14);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 36);
             this.button5.TabIndex = 8;
@@ -123,7 +124,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(800, 15);
+            this.button3.Location = new System.Drawing.Point(735, 14);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 36);
             this.button3.TabIndex = 10;
@@ -134,8 +135,9 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(369, 13);
+            this.button2.Location = new System.Drawing.Point(897, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 36);
             this.button2.TabIndex = 5;
@@ -215,6 +217,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.dataGridViewTextBoxColumn2,
             this.客户名称DataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn3,
@@ -232,12 +235,20 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 21;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(984, 378);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnProjectGridCellDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "工程关键字";
+            this.Column1.HeaderText = "工程ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -365,6 +376,8 @@
         private DataSet1 dataSet1;
         private DataSet1TableAdapters.GCBTableAdapter gCBTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn 联系人DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn 客户名称DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -376,6 +389,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 总计;
         private System.Windows.Forms.DataGridViewTextBoxColumn 创建日期DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注DataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button7;
     }
 }

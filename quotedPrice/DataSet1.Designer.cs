@@ -665,7 +665,7 @@ namespace quotedPrice {
                 this.column工程关键字.Unique = true;
                 this.column工程关键字.MaxLength = 10;
                 this.column工程名称.MaxLength = 50;
-                this.column客户名称.MaxLength = 8;
+                this.column客户名称.MaxLength = 50;
                 this.column客户地址.MaxLength = 80;
                 this.column联系方式.MaxLength = 50;
                 this.column工程负责人.MaxLength = 10;
@@ -1633,7 +1633,7 @@ namespace quotedPrice {
                 this.column项目关键字.MaxLength = 10;
                 this.column工程关键字.AllowDBNull = false;
                 this.column工程关键字.MaxLength = 10;
-                this.column项目编码.MaxLength = 10;
+                this.column项目编码.MaxLength = 50;
                 this.column序号.MaxLength = 3;
                 this.column项目名称.MaxLength = 50;
                 this.column统计标志.MaxLength = 1;
@@ -2233,13 +2233,13 @@ namespace quotedPrice {
                 this.column备注 = new global::System.Data.DataColumn("备注", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column备注);
                 this.column工程名称.MaxLength = 50;
-                this.column客户名称.MaxLength = 8;
+                this.column客户名称.MaxLength = 50;
                 this.column项目名称.MaxLength = 50;
                 this.column部件名称.MaxLength = 80;
                 this.column单位.MaxLength = 10;
                 this.column材料.MaxLength = 80;
                 this.column图层名称.MaxLength = 20;
-                this.column颜色.MaxLength = 20;
+                this.column颜色.MaxLength = 80;
                 this.column品牌.MaxLength = 20;
                 this.column备注.MaxLength = 536870910;
             }
@@ -2429,11 +2429,11 @@ namespace quotedPrice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string 客户地址 {
                 get {
-                    try {
-                        return ((string)(this[this.tableGCB.客户地址Column]));
+                    if (this.Is客户地址Null()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“GCB”中列“客户地址”的值为 DBNull。", e);
+                    else {
+                        return ((string)(this[this.tableGCB.客户地址Column]));
                     }
                 }
                 set {
@@ -2445,11 +2445,11 @@ namespace quotedPrice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string 联系方式 {
                 get {
-                    try {
-                        return ((string)(this[this.tableGCB.联系方式Column]));
+                    if (this.Is联系方式Null()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“GCB”中列“联系方式”的值为 DBNull。", e);
+                    else {
+                        return ((string)(this[this.tableGCB.联系方式Column]));
                     }
                 }
                 set {
@@ -3725,11 +3725,11 @@ namespace quotedPrice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string 材料 {
                 get {
-                    try {
-                        return ((string)(this[this.tableProjectDetail.材料Column]));
+                    if (this.Is材料Null()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“ProjectDetail”中列“材料”的值为 DBNull。", e);
+                    else {
+                        return ((string)(this[this.tableProjectDetail.材料Column]));
                     }
                 }
                 set {
@@ -3741,11 +3741,11 @@ namespace quotedPrice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string 图层名称 {
                 get {
-                    try {
-                        return ((string)(this[this.tableProjectDetail.图层名称Column]));
+                    if (this.Is图层名称Null()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“ProjectDetail”中列“图层名称”的值为 DBNull。", e);
+                    else {
+                        return ((string)(this[this.tableProjectDetail.图层名称Column]));
                     }
                 }
                 set {
@@ -3869,11 +3869,11 @@ namespace quotedPrice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string 颜色 {
                 get {
-                    try {
-                        return ((string)(this[this.tableProjectDetail.颜色Column]));
+                    if (this.Is颜色Null()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“ProjectDetail”中列“颜色”的值为 DBNull。", e);
+                    else {
+                        return ((string)(this[this.tableProjectDetail.颜色Column]));
                     }
                 }
                 set {
@@ -3885,11 +3885,11 @@ namespace quotedPrice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string 品牌 {
                 get {
-                    try {
-                        return ((string)(this[this.tableProjectDetail.品牌Column]));
+                    if (this.Is品牌Null()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“ProjectDetail”中列“品牌”的值为 DBNull。", e);
+                    else {
+                        return ((string)(this[this.tableProjectDetail.品牌Column]));
                     }
                 }
                 set {
@@ -3901,11 +3901,11 @@ namespace quotedPrice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string 备注 {
                 get {
-                    try {
-                        return ((string)(this[this.tableProjectDetail.备注Column]));
+                    if (this.Is备注Null()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“ProjectDetail”中列“备注”的值为 DBNull。", e);
+                    else {
+                        return ((string)(this[this.tableProjectDetail.备注Column]));
                     }
                 }
                 set {
@@ -4574,8 +4574,8 @@ namespace quotedPrice.DataSet1TableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT   工程关键字,  工程名称, 客户名称, 客户地址,  联系方式, 工程负责人, 创建日期, 备注, 税前合计, 税金, \r\n          " +
-                "      总计, 税率\r\nFROM      GCB";
+            this._commandCollection[0].CommandText = "SELECT   工程关键字, 工程名称, 客户名称, 客户地址, 联系方式, 工程负责人, 创建日期, 备注, 税前合计, 税金, 总计, 税率\r\nFROM  " +
+                "    GCB";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace quotedPrice
 
         private void FormProjects_Load(object sender, EventArgs e)
         {
+            dataGridView1.MultiSelect = true;
             // TODO: 这行代码将数据加载到表“dataSet1.GCB”中。您可以根据需要移动或删除它。
             this.gCBTableAdapter.Fill(this.dataSet1.GCB);
             gCBBindingSource.Sort = "创建日期 desc";
@@ -63,6 +65,10 @@ namespace quotedPrice
         {
            var form = new FormProjectBudget() { ProjectKey = string.Empty};
            form.ShowDialog(this);
+           if(form.DialogResult == DialogResult.OK)
+            {
+                button4.PerformClick();
+            }
         }
 
         private void OnExitButtonClick(object sender, EventArgs e)
@@ -72,17 +78,35 @@ namespace quotedPrice
 
         private void OnDeleteProjectButtonClick(object sender, EventArgs e)
         {
-            if(DialogResult.OK == MessageBox.Show("确定要删除该项目吗？该操作不可恢复，请慎重操作！", "系统提示"
-                , MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
+            if (this.dataGridView1.SelectedRows.Count > 0)
             {
-                var rowView = gCBBindingSource.Current as DataRowView;
-                if (rowView != null)
+
+                if (DialogResult.OK == MessageBox.Show("确定要删除该项目吗？该操作不可恢复，请慎重操作！", "系统提示"
+                , MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
                 {
-                    var row = rowView.Row as DataSet1.GCBRow;
-                    if (row != null && gCBTableAdapter.DeleteProject(row) > 0)
+                    for (int i = this.dataGridView1.SelectedRows.Count-1; i >= 0; i--)
                     {
-                       Utility.Info("删除成功");
+                        this.dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[i].Index);
                     }
+                    gCBBindingSource.EndEdit();
+                    DataTable cdt = dataSet1.GCB.GetChanges();
+                    ArrayList sqlList = new ArrayList();
+                    for (int i = 0; i < cdt.Rows.Count; i++)
+                    {
+                        if (cdt.Rows[i].RowState == DataRowState.Deleted)
+                        {
+                            string ProjectKey = cdt.Rows[i][0, DataRowVersion.Original].ToString();
+                            sqlList.Add("Delete from PARTS where [工程关键字] = '" + ProjectKey +"'");
+                            sqlList.Add("Delete from XMB where  [工程关键字] = '" + ProjectKey + "'");
+                        }
+                    }
+                    if (gCBTableAdapter.DeleteProject(sqlList))
+                    {
+                        gCBTableAdapter.Update(dataSet1.GCB);
+                        Utility.Info("删除成功");
+                    }
+                    else
+                        Utility.Info("删除失败");
                 }
             }
         }
@@ -99,19 +123,13 @@ namespace quotedPrice
 
         private void OnPrintProjectButtonClick(object sender, EventArgs e)
         {
-            var row = gCBBindingSource.Current as DataRowView;
-            /*
-            if (row != null)
+            List<String> strList = new List<string>();
+            foreach (DataGridViewRow dgr in dataGridView1.SelectedRows)
             {
-               var project = row.Row as DataSet1.GCBRow;
-               if (project != null)
-               {
-                    var form = new FormPrint();
-                    form.ProjectInfo = project;
-                    form.Show(this);
-               }
-            }*/
-            var form = new FormReport();
+                strList.Add(dgr.Cells[0].Value.ToString());
+            }
+            var form = new FormPrint();
+            form.ProjectKey = strList.ToArray();
             form.Show(this);
         }
 

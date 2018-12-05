@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace quotedPrice
@@ -22,15 +23,17 @@ namespace quotedPrice
 
         private void FormProjectBudget_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ProjectKey))
+            if (string.IsNullOrEmpty(ProjectKey))//添加
             {
                 ProjectKey = gCBTableAdapter.GetNewProjectKey();
                 dataSet1.GCB.AddGCBRow(ProjectKey, ProjectKey, string.Empty, string.Empty, string.Empty,
                                  string.Empty, 
                                   DateTime.Now, String.Empty, 0.0, 0.0, 0.0, 16.00);
             }
-            else
+            else　//浏览
             {
+                //button6.Visible = false;
+                //button5.Visible = false;
                 if (CopyProject)
                 {
                     var projectTable = new DataSet1.GCBDataTable();
@@ -72,14 +75,18 @@ namespace quotedPrice
                 }
                 else
                 {
-                    gCBTableAdapter.GetProject(ProjectKey, dataSet1.GCB);
-                    gCBTableAdapter.GetSubProjects(ProjectKey, dataSet1.XMB);
-                    gCBTableAdapter.GetSubProjectsDetail(ProjectKey, dataSet1.PARTS);
+                    refreshData();
                 }
             }
             Text += string.Format("创建日期:{0:yyyy年M月d日}",dataSet1.GCB.Rows[0]["创建日期"]);
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.OnTaxRateChanged);//系统数据初始化完后再绑定，避免误动作
         }
-
+        private void refreshData()
+        {
+            gCBTableAdapter.GetSubProjectsDetail(ProjectKey, dataSet1.PARTS);
+            gCBTableAdapter.GetProject(ProjectKey, dataSet1.GCB);
+            gCBTableAdapter.GetSubProjects(ProjectKey, dataSet1.XMB);
+        }
         private void OnGridDataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("输入数字格式不正确！");
@@ -128,11 +135,11 @@ namespace quotedPrice
                 Utility.Warning("请输入客户名称！");
                 return false;
             }
-            if (project.Is联系方式Null() || string.IsNullOrEmpty(project.联系方式))
-            {
-                Utility.Warning("请输入联系方式！");
-                return false;
-            }
+            //if (project.Is联系方式Null() || string.IsNullOrEmpty(project.联系方式))
+            //{
+            //    Utility.Warning("请输入联系方式！");
+            //   return false;
+            //}
             if (project.Is备注Null() || string.IsNullOrEmpty(project.备注))
                 project.备注 = " ";
             project.工程关键字 = string.IsNullOrEmpty(ProjectKey) ? ProjectKey = gCBTableAdapter.GetNewProjectKey() : ProjectKey;
@@ -440,20 +447,123 @@ namespace quotedPrice
         }
         //导入板材
         private void button6_Click(object sender, EventArgs e)
-        {           
-            openFileDialog.FilterIndex = 1;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                OleDbHelper.GetExcelTables("");
-            }
-        }
-        //导入五金
-        private void button5_Click(object sender, EventArgs e)
         {
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                WaitForm loading = WaitForm.getLoading();
+                loading.SetExecuteMethod(runImpbancai, null);
+                loading.ShowDialog();
+                if (ValidateProjectInfo())
+                {
+                    //CaculateFloorSum(false);
+                    CaculateTotalPrice();
+                    gCBDataSource.EndEdit();
+                    gCBTableAdapter.Update(dataSet1.GCB);
+                    new DataSet1TableAdapters.XMBTableAdapter().Update(dataSet1.XMB);
+                    new DataSet1TableAdapters.PARTSTableAdapter().Update(dataSet1.PARTS);
+                }
+                this.SubProjectDetailGrid1.DataSource = null;
+                this.SubProjectDetailGrid1.DataSource = this.PARTSSource;
+                this.dataGridView4.DataSource = null;
+                this.dataGridView4.DataSource = this.XMBBindingSource;
             }
+        }
+        private void runImpbancai(object obj)
+        {
+            //添加工程
+            //dataSet1.GCB.AddGCBRow(ProjectKey,
+            //dt.Rows[0]["项目名称"].ToString(), dt.Rows[0]["客户信息"].ToString(), string.Empty,
+            //string.Empty, string.Empty,
+            //DateTime.Now, " ",0, 0, 0,16.00);
+            DataTable dt = NPOIExcelHelp.ReadExcel(openFileDialog.FileName, "Parts list", true);
+            dt.Rows.RemoveAt(0);//移出第一行空行
+            if (dt.Rows.Count > 0)
+            {
+                var project = dataSet1.GCB.Rows[0] as DataSet1.GCBRow;
+                project.工程名称 = dt.Rows[0]["项目名称"].ToString();
+                project.客户名称 = dt.Rows[0]["客户信息"].ToString();
+                //textBox2.Text = dt.Rows[0]["项目名称"].ToString();
+                //textBox4.Text = dt.Rows[0]["客户信息"].ToString();
+
+                DataView dataView = dt.DefaultView;
+                DataTable dtDistinct = dataView.ToTable(true, "组路径");//去列的重复项
+
+                foreach (DataRow dr in dtDistinct.Rows)
+                {
+                    //添加项目
+                    string subProjectKey = gCBTableAdapter.GetSubProjectKey(); //生成项目关键字
+                    string xmName = dr["组路径"].ToString();
+                    if (string.IsNullOrEmpty(xmName))
+                        continue;
+                    dataSet1.XMB.AddXMBRow(subProjectKey, ProjectKey, "", (dataSet1.XMB.Rows.Count + 1).ToString("X"),
+            xmName.Replace("/", ""), 0, "1", "1", "101");
+                    foreach (DataRow drDetail in dt.Select("组路径='" + xmName + "'"))
+                    {
+                        //添加部件
+                        dataSet1.PARTS.AddPARTSRow(gCBTableAdapter.GetNewSubProjectDetailId(),
+                                subProjectKey, ProjectKey, (dataSet1.PARTS.Rows.Count + 1).ToString(), string.Empty, drDetail["名称"].ToString(),
+                                float.Parse(drDetail["长度"].ToString()), float.Parse(drDetail["宽度"].ToString()),
+                                float.Parse(drDetail["厚度"].ToString()), "M2", Convert.ToDouble(drDetail["数量"]),
+                                float.Parse(drDetail["成型尺寸 l1"].ToString()), float.Parse(drDetail["成型尺寸 l2"].ToString()),
+                                Convert.ToDouble(drDetail["面积，成型面积"]), drDetail["材料"].ToString(),
+                                drDetail["图层名称"].ToString(), 0, 0, 0, 0, " ", string.Empty);
+                    }
+                }
+                
+            }
+            WaitForm.getLoading().CloseLoadingForm();
+        }
+        //导入五金
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var frm = new FormSelect();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                DataTable dt = frm.gdt.DefaultView.Table;
+                WaitForm loading = WaitForm.getLoading();
+                loading.SetExecuteMethod(runImpWujin, dt);
+                loading.ShowDialog();
+                if (ValidateProjectInfo())
+                {
+                    //CaculateFloorSum(false);
+                    CaculateTotalPrice();
+                    gCBDataSource.EndEdit();
+                    gCBTableAdapter.Update(dataSet1.GCB);
+                    new DataSet1TableAdapters.XMBTableAdapter().Update(dataSet1.XMB);
+                    new DataSet1TableAdapters.PARTSTableAdapter().Update(dataSet1.PARTS);
+                }
+                this.SubProjectDetailGrid1.DataSource = null;
+                this.SubProjectDetailGrid1.DataSource = this.PARTSSource;
+                this.dataGridView4.DataSource = null;
+                this.dataGridView4.DataSource = this.XMBBindingSource;
+                //refreshData();
+                //dataGridView4.Refresh();
+                //SubProjectDetailGrid1.Refresh();
+            }
+        }
+        private void runImpWujin(object obj)
+        {
+            DataTable dt = obj as DataTable;
+            if (dt.Rows.Count > 0)
+            {
+                //添加项目
+                string subProjectKey = gCBTableAdapter.GetSubProjectKey(); //生成项目关键字
+                string xmName = "五金配件";
+                dataSet1.XMB.AddXMBRow(subProjectKey, ProjectKey, "", (dataSet1.XMB.Rows.Count + 1).ToString("X"),
+        xmName, 0, "1", "1", "101");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //添加部件
+                    dataSet1.PARTS.AddPARTSRow(gCBTableAdapter.GetNewSubProjectDetailId(),
+                            subProjectKey, ProjectKey, (dataSet1.PARTS.Rows.Count + 1).ToString(), dr["颜色"].ToString(), dr["部品"].ToString(),
+                            0, 0, 0, dr["单位"].ToString(), Convert.ToDouble(dr["数量"]),
+                            0, 0, 0, dr["型号"].ToString(), string.Empty, 0, 0, Convert.ToDouble(dr["标准单价"]),
+                             Convert.ToDouble(dr["标准单价"]) * Convert.ToDouble(dr["数量"]), " ", dr["品牌"].ToString());
+                }
+            }
+            WaitForm.getLoading().CloseLoadingForm();
         }
     }
 }

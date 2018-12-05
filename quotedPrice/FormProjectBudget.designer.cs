@@ -60,21 +60,37 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.序号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.项目名称DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.合计金额DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.楼层DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.房间DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.XMBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SubProjectDetailGrid1 = new System.Windows.Forms.DataGridView();
+            this.序号DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.部件名称DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.材料DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.颜色 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.品牌 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单价DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.金额DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.长度DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.宽度DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.厚度DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单位DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.成型尺寸l1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.成型尺寸l2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.成型面积DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.图层名称DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.标准单价DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.标准金额DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PARTSSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.xMBTableAdapter = new quotedPrice.DataSet1TableAdapters.XMBTableAdapter();
             this.pARTSTableAdapter = new quotedPrice.DataSet1TableAdapters.PARTSTableAdapter();
             this.gCBTableAdapter = new quotedPrice.DataSet1TableAdapters.GCBTableAdapter();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,26 +113,8 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.序号DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.部件名称DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.颜色 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.品牌 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.数量DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单价DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.金额DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.材料DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.长度DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.宽度DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.厚度DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单位DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.成型尺寸l1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.成型尺寸l2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.成型面积DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.图层名称DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.标准单价DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.标准金额DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.备注DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gCBDataSource)).BeginInit();
@@ -125,8 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -134,7 +131,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.XMBBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubProjectDetailGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PARTSSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -157,7 +153,7 @@
             // 
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(205, 4);
+            this.button6.Location = new System.Drawing.Point(306, 4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(95, 32);
             this.button6.TabIndex = 8;
@@ -169,7 +165,7 @@
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(306, 4);
+            this.button5.Location = new System.Drawing.Point(407, 4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(95, 32);
             this.button5.TabIndex = 7;
@@ -212,7 +208,7 @@
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(407, 4);
+            this.button4.Location = new System.Drawing.Point(205, 4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(95, 32);
             this.button4.TabIndex = 3;
@@ -287,7 +283,7 @@
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Location = new System.Drawing.Point(69, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 21);
+            this.textBox2.Size = new System.Drawing.Size(130, 21);
             this.textBox2.TabIndex = 1;
             // 
             // gCBDataSource
@@ -302,7 +298,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(225, 3);
+            this.label3.Location = new System.Drawing.Point(205, 3);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 21);
@@ -314,15 +310,15 @@
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gCBDataSource, "工程负责人", true));
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(301, 3);
+            this.textBox3.Location = new System.Drawing.Point(281, 3);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(80, 21);
+            this.textBox3.Size = new System.Drawing.Size(91, 21);
             this.textBox3.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(387, 3);
+            this.label6.Location = new System.Drawing.Point(378, 3);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 21);
@@ -334,14 +330,14 @@
             // 
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gCBDataSource, "客户名称", true));
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(453, 3);
+            this.textBox4.Location = new System.Drawing.Point(444, 3);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(80, 21);
+            this.textBox4.Size = new System.Drawing.Size(107, 21);
             this.textBox4.TabIndex = 4;
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(539, 3);
+            this.label7.Location = new System.Drawing.Point(557, 3);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 21);
@@ -353,14 +349,14 @@
             // 
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gCBDataSource, "客户地址", true));
             this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(605, 3);
+            this.textBox5.Location = new System.Drawing.Point(623, 3);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(150, 21);
             this.textBox5.TabIndex = 5;
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(761, 3);
+            this.label8.Location = new System.Drawing.Point(779, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 21);
@@ -372,7 +368,7 @@
             // 
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gCBDataSource, "联系方式", true));
             this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(837, 3);
+            this.textBox6.Location = new System.Drawing.Point(855, 3);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(104, 21);
             this.textBox6.TabIndex = 6;
@@ -499,7 +495,6 @@
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.OnTaxRateChanged);
             // 
             // label10
             // 
@@ -511,19 +506,6 @@
             this.label10.Text = "%";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(273, 418);
-            this.dataGridView1.TabIndex = 4;
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -533,12 +515,10 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.dataGridView4);
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.SubProjectDetailGrid1);
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer1.Size = new System.Drawing.Size(962, 418);
             this.splitContainer1.SplitterDistance = 273;
             this.splitContainer1.TabIndex = 6;
@@ -553,16 +533,16 @@
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.序号DataGridViewTextBoxColumn,
             this.项目名称DataGridViewTextBoxColumn,
-            this.合计金额DataGridViewTextBoxColumn,
-            this.楼层DataGridViewTextBoxColumn,
-            this.房间DataGridViewTextBoxColumn});
+            this.合计金额DataGridViewTextBoxColumn});
             this.dataGridView4.DataSource = this.XMBBindingSource;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
             this.dataGridView4.MultiSelect = false;
             this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersVisible = false;
             this.dataGridView4.RowHeadersWidth = 21;
             this.dataGridView4.RowTemplate.Height = 23;
+            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView4.Size = new System.Drawing.Size(273, 418);
             this.dataGridView4.TabIndex = 0;
             this.dataGridView4.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.OnGridDataError);
@@ -572,32 +552,24 @@
             // 序号DataGridViewTextBoxColumn
             // 
             this.序号DataGridViewTextBoxColumn.DataPropertyName = "序号";
+            this.序号DataGridViewTextBoxColumn.FillWeight = 77.70004F;
             this.序号DataGridViewTextBoxColumn.HeaderText = "序号";
+            this.序号DataGridViewTextBoxColumn.MinimumWidth = 20;
             this.序号DataGridViewTextBoxColumn.Name = "序号DataGridViewTextBoxColumn";
             // 
             // 项目名称DataGridViewTextBoxColumn
             // 
             this.项目名称DataGridViewTextBoxColumn.DataPropertyName = "项目名称";
+            this.项目名称DataGridViewTextBoxColumn.FillWeight = 137.0559F;
             this.项目名称DataGridViewTextBoxColumn.HeaderText = "项目名称";
             this.项目名称DataGridViewTextBoxColumn.Name = "项目名称DataGridViewTextBoxColumn";
             // 
             // 合计金额DataGridViewTextBoxColumn
             // 
             this.合计金额DataGridViewTextBoxColumn.DataPropertyName = "合计金额";
+            this.合计金额DataGridViewTextBoxColumn.FillWeight = 85.24416F;
             this.合计金额DataGridViewTextBoxColumn.HeaderText = "合计金额";
             this.合计金额DataGridViewTextBoxColumn.Name = "合计金额DataGridViewTextBoxColumn";
-            // 
-            // 楼层DataGridViewTextBoxColumn
-            // 
-            this.楼层DataGridViewTextBoxColumn.DataPropertyName = "楼层";
-            this.楼层DataGridViewTextBoxColumn.HeaderText = "楼层";
-            this.楼层DataGridViewTextBoxColumn.Name = "楼层DataGridViewTextBoxColumn";
-            // 
-            // 房间DataGridViewTextBoxColumn
-            // 
-            this.房间DataGridViewTextBoxColumn.DataPropertyName = "房间";
-            this.房间DataGridViewTextBoxColumn.HeaderText = "房间";
-            this.房间DataGridViewTextBoxColumn.Name = "房间DataGridViewTextBoxColumn";
             // 
             // XMBBindingSource
             // 
@@ -613,12 +585,12 @@
             this.SubProjectDetailGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.序号DataGridViewTextBoxColumn1,
             this.部件名称DataGridViewTextBoxColumn,
+            this.材料DataGridViewTextBoxColumn,
             this.颜色,
             this.品牌,
             this.数量DataGridViewTextBoxColumn,
             this.单价DataGridViewTextBoxColumn,
             this.金额DataGridViewTextBoxColumn,
-            this.材料DataGridViewTextBoxColumn,
             this.长度DataGridViewTextBoxColumn,
             this.宽度DataGridViewTextBoxColumn,
             this.厚度DataGridViewTextBoxColumn,
@@ -635,6 +607,7 @@
             this.SubProjectDetailGrid1.Location = new System.Drawing.Point(0, 0);
             this.SubProjectDetailGrid1.MultiSelect = false;
             this.SubProjectDetailGrid1.Name = "SubProjectDetailGrid1";
+            this.SubProjectDetailGrid1.RowHeadersVisible = false;
             this.SubProjectDetailGrid1.RowHeadersWidth = 21;
             this.SubProjectDetailGrid1.RowTemplate.Height = 23;
             this.SubProjectDetailGrid1.Size = new System.Drawing.Size(685, 418);
@@ -642,25 +615,127 @@
             this.SubProjectDetailGrid1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnSubDetailRowValidated);
             this.SubProjectDetailGrid1.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.OnSubDetailRowValidating);
             // 
+            // 序号DataGridViewTextBoxColumn1
+            // 
+            this.序号DataGridViewTextBoxColumn1.DataPropertyName = "序号";
+            this.序号DataGridViewTextBoxColumn1.HeaderText = "序号";
+            this.序号DataGridViewTextBoxColumn1.Name = "序号DataGridViewTextBoxColumn1";
+            this.序号DataGridViewTextBoxColumn1.Width = 40;
+            // 
+            // 部件名称DataGridViewTextBoxColumn
+            // 
+            this.部件名称DataGridViewTextBoxColumn.DataPropertyName = "部件名称";
+            this.部件名称DataGridViewTextBoxColumn.HeaderText = "部件名称";
+            this.部件名称DataGridViewTextBoxColumn.Name = "部件名称DataGridViewTextBoxColumn";
+            // 
+            // 材料DataGridViewTextBoxColumn
+            // 
+            this.材料DataGridViewTextBoxColumn.DataPropertyName = "材料";
+            this.材料DataGridViewTextBoxColumn.HeaderText = "材料";
+            this.材料DataGridViewTextBoxColumn.Name = "材料DataGridViewTextBoxColumn";
+            // 
+            // 颜色
+            // 
+            this.颜色.DataPropertyName = "颜色";
+            this.颜色.HeaderText = "颜色";
+            this.颜色.Name = "颜色";
+            // 
+            // 品牌
+            // 
+            this.品牌.DataPropertyName = "品牌";
+            this.品牌.HeaderText = "品牌";
+            this.品牌.Name = "品牌";
+            // 
+            // 数量DataGridViewTextBoxColumn
+            // 
+            this.数量DataGridViewTextBoxColumn.DataPropertyName = "数量";
+            this.数量DataGridViewTextBoxColumn.HeaderText = "数量";
+            this.数量DataGridViewTextBoxColumn.Name = "数量DataGridViewTextBoxColumn";
+            // 
+            // 单价DataGridViewTextBoxColumn
+            // 
+            this.单价DataGridViewTextBoxColumn.DataPropertyName = "单价";
+            this.单价DataGridViewTextBoxColumn.HeaderText = "单价";
+            this.单价DataGridViewTextBoxColumn.Name = "单价DataGridViewTextBoxColumn";
+            // 
+            // 金额DataGridViewTextBoxColumn
+            // 
+            this.金额DataGridViewTextBoxColumn.DataPropertyName = "金额";
+            this.金额DataGridViewTextBoxColumn.HeaderText = "金额";
+            this.金额DataGridViewTextBoxColumn.Name = "金额DataGridViewTextBoxColumn";
+            // 
+            // 长度DataGridViewTextBoxColumn
+            // 
+            this.长度DataGridViewTextBoxColumn.DataPropertyName = "长度";
+            this.长度DataGridViewTextBoxColumn.HeaderText = "长度";
+            this.长度DataGridViewTextBoxColumn.Name = "长度DataGridViewTextBoxColumn";
+            // 
+            // 宽度DataGridViewTextBoxColumn
+            // 
+            this.宽度DataGridViewTextBoxColumn.DataPropertyName = "宽度";
+            this.宽度DataGridViewTextBoxColumn.HeaderText = "宽度";
+            this.宽度DataGridViewTextBoxColumn.Name = "宽度DataGridViewTextBoxColumn";
+            // 
+            // 厚度DataGridViewTextBoxColumn
+            // 
+            this.厚度DataGridViewTextBoxColumn.DataPropertyName = "厚度";
+            this.厚度DataGridViewTextBoxColumn.HeaderText = "厚度";
+            this.厚度DataGridViewTextBoxColumn.Name = "厚度DataGridViewTextBoxColumn";
+            // 
+            // 单位DataGridViewTextBoxColumn
+            // 
+            this.单位DataGridViewTextBoxColumn.DataPropertyName = "单位";
+            this.单位DataGridViewTextBoxColumn.HeaderText = "单位";
+            this.单位DataGridViewTextBoxColumn.Name = "单位DataGridViewTextBoxColumn";
+            // 
+            // 成型尺寸l1DataGridViewTextBoxColumn
+            // 
+            this.成型尺寸l1DataGridViewTextBoxColumn.DataPropertyName = "成型尺寸l1";
+            this.成型尺寸l1DataGridViewTextBoxColumn.HeaderText = "成型尺寸l1";
+            this.成型尺寸l1DataGridViewTextBoxColumn.Name = "成型尺寸l1DataGridViewTextBoxColumn";
+            // 
+            // 成型尺寸l2DataGridViewTextBoxColumn
+            // 
+            this.成型尺寸l2DataGridViewTextBoxColumn.DataPropertyName = "成型尺寸l2";
+            this.成型尺寸l2DataGridViewTextBoxColumn.HeaderText = "成型尺寸l2";
+            this.成型尺寸l2DataGridViewTextBoxColumn.Name = "成型尺寸l2DataGridViewTextBoxColumn";
+            // 
+            // 成型面积DataGridViewTextBoxColumn
+            // 
+            this.成型面积DataGridViewTextBoxColumn.DataPropertyName = "成型面积";
+            this.成型面积DataGridViewTextBoxColumn.HeaderText = "成型面积";
+            this.成型面积DataGridViewTextBoxColumn.Name = "成型面积DataGridViewTextBoxColumn";
+            // 
+            // 图层名称DataGridViewTextBoxColumn
+            // 
+            this.图层名称DataGridViewTextBoxColumn.DataPropertyName = "图层名称";
+            this.图层名称DataGridViewTextBoxColumn.HeaderText = "图层名称";
+            this.图层名称DataGridViewTextBoxColumn.Name = "图层名称DataGridViewTextBoxColumn";
+            // 
+            // 标准单价DataGridViewTextBoxColumn
+            // 
+            this.标准单价DataGridViewTextBoxColumn.DataPropertyName = "标准单价";
+            this.标准单价DataGridViewTextBoxColumn.HeaderText = "标准单价";
+            this.标准单价DataGridViewTextBoxColumn.Name = "标准单价DataGridViewTextBoxColumn";
+            // 
+            // 标准金额DataGridViewTextBoxColumn
+            // 
+            this.标准金额DataGridViewTextBoxColumn.DataPropertyName = "标准金额";
+            this.标准金额DataGridViewTextBoxColumn.HeaderText = "标准金额";
+            this.标准金额DataGridViewTextBoxColumn.Name = "标准金额DataGridViewTextBoxColumn";
+            // 
+            // 备注DataGridViewTextBoxColumn
+            // 
+            this.备注DataGridViewTextBoxColumn.DataPropertyName = "备注";
+            this.备注DataGridViewTextBoxColumn.HeaderText = "备注";
+            this.备注DataGridViewTextBoxColumn.Name = "备注DataGridViewTextBoxColumn";
+            // 
             // PARTSSource
             // 
             this.PARTSSource.DataMember = "PARTS";
             this.PARTSSource.DataSource = this.dataSet1;
             this.PARTSSource.Filter = "";
             this.PARTSSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.OnGCZBMXAddingNew);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(685, 418);
-            this.dataGridView2.TabIndex = 8;
             // 
             // xMBTableAdapter
             // 
@@ -673,6 +748,10 @@
             // gCBTableAdapter
             // 
             this.gCBTableAdapter.ClearBeforeFill = true;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -833,123 +912,17 @@
             this.dataGridViewTextBoxColumn22.HeaderText = "备注";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             // 
-            // openFileDialog
+            // dataGridViewTextBoxColumn23
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "标准金额";
+            this.dataGridViewTextBoxColumn23.HeaderText = "标准金额";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             // 
-            // 序号DataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn24
             // 
-            this.序号DataGridViewTextBoxColumn1.DataPropertyName = "序号";
-            this.序号DataGridViewTextBoxColumn1.HeaderText = "序号";
-            this.序号DataGridViewTextBoxColumn1.Name = "序号DataGridViewTextBoxColumn1";
-            // 
-            // 部件名称DataGridViewTextBoxColumn
-            // 
-            this.部件名称DataGridViewTextBoxColumn.DataPropertyName = "部件名称";
-            this.部件名称DataGridViewTextBoxColumn.HeaderText = "部件名称";
-            this.部件名称DataGridViewTextBoxColumn.Name = "部件名称DataGridViewTextBoxColumn";
-            // 
-            // 颜色
-            // 
-            this.颜色.DataPropertyName = "颜色";
-            this.颜色.HeaderText = "颜色";
-            this.颜色.Name = "颜色";
-            // 
-            // 品牌
-            // 
-            this.品牌.DataPropertyName = "品牌";
-            this.品牌.HeaderText = "品牌";
-            this.品牌.Name = "品牌";
-            // 
-            // 数量DataGridViewTextBoxColumn
-            // 
-            this.数量DataGridViewTextBoxColumn.DataPropertyName = "数量";
-            this.数量DataGridViewTextBoxColumn.HeaderText = "数量";
-            this.数量DataGridViewTextBoxColumn.Name = "数量DataGridViewTextBoxColumn";
-            // 
-            // 单价DataGridViewTextBoxColumn
-            // 
-            this.单价DataGridViewTextBoxColumn.DataPropertyName = "单价";
-            this.单价DataGridViewTextBoxColumn.HeaderText = "单价";
-            this.单价DataGridViewTextBoxColumn.Name = "单价DataGridViewTextBoxColumn";
-            // 
-            // 金额DataGridViewTextBoxColumn
-            // 
-            this.金额DataGridViewTextBoxColumn.DataPropertyName = "金额";
-            this.金额DataGridViewTextBoxColumn.HeaderText = "金额";
-            this.金额DataGridViewTextBoxColumn.Name = "金额DataGridViewTextBoxColumn";
-            // 
-            // 材料DataGridViewTextBoxColumn
-            // 
-            this.材料DataGridViewTextBoxColumn.DataPropertyName = "材料";
-            this.材料DataGridViewTextBoxColumn.HeaderText = "材料";
-            this.材料DataGridViewTextBoxColumn.Name = "材料DataGridViewTextBoxColumn";
-            // 
-            // 长度DataGridViewTextBoxColumn
-            // 
-            this.长度DataGridViewTextBoxColumn.DataPropertyName = "长度";
-            this.长度DataGridViewTextBoxColumn.HeaderText = "长度";
-            this.长度DataGridViewTextBoxColumn.Name = "长度DataGridViewTextBoxColumn";
-            // 
-            // 宽度DataGridViewTextBoxColumn
-            // 
-            this.宽度DataGridViewTextBoxColumn.DataPropertyName = "宽度";
-            this.宽度DataGridViewTextBoxColumn.HeaderText = "宽度";
-            this.宽度DataGridViewTextBoxColumn.Name = "宽度DataGridViewTextBoxColumn";
-            // 
-            // 厚度DataGridViewTextBoxColumn
-            // 
-            this.厚度DataGridViewTextBoxColumn.DataPropertyName = "厚度";
-            this.厚度DataGridViewTextBoxColumn.HeaderText = "厚度";
-            this.厚度DataGridViewTextBoxColumn.Name = "厚度DataGridViewTextBoxColumn";
-            // 
-            // 单位DataGridViewTextBoxColumn
-            // 
-            this.单位DataGridViewTextBoxColumn.DataPropertyName = "单位";
-            this.单位DataGridViewTextBoxColumn.HeaderText = "单位";
-            this.单位DataGridViewTextBoxColumn.Name = "单位DataGridViewTextBoxColumn";
-            // 
-            // 成型尺寸l1DataGridViewTextBoxColumn
-            // 
-            this.成型尺寸l1DataGridViewTextBoxColumn.DataPropertyName = "成型尺寸l1";
-            this.成型尺寸l1DataGridViewTextBoxColumn.HeaderText = "成型尺寸l1";
-            this.成型尺寸l1DataGridViewTextBoxColumn.Name = "成型尺寸l1DataGridViewTextBoxColumn";
-            // 
-            // 成型尺寸l2DataGridViewTextBoxColumn
-            // 
-            this.成型尺寸l2DataGridViewTextBoxColumn.DataPropertyName = "成型尺寸l2";
-            this.成型尺寸l2DataGridViewTextBoxColumn.HeaderText = "成型尺寸l2";
-            this.成型尺寸l2DataGridViewTextBoxColumn.Name = "成型尺寸l2DataGridViewTextBoxColumn";
-            // 
-            // 成型面积DataGridViewTextBoxColumn
-            // 
-            this.成型面积DataGridViewTextBoxColumn.DataPropertyName = "成型面积";
-            this.成型面积DataGridViewTextBoxColumn.HeaderText = "成型面积";
-            this.成型面积DataGridViewTextBoxColumn.Name = "成型面积DataGridViewTextBoxColumn";
-            // 
-            // 图层名称DataGridViewTextBoxColumn
-            // 
-            this.图层名称DataGridViewTextBoxColumn.DataPropertyName = "图层名称";
-            this.图层名称DataGridViewTextBoxColumn.HeaderText = "图层名称";
-            this.图层名称DataGridViewTextBoxColumn.Name = "图层名称DataGridViewTextBoxColumn";
-            // 
-            // 标准单价DataGridViewTextBoxColumn
-            // 
-            this.标准单价DataGridViewTextBoxColumn.DataPropertyName = "标准单价";
-            this.标准单价DataGridViewTextBoxColumn.HeaderText = "标准单价";
-            this.标准单价DataGridViewTextBoxColumn.Name = "标准单价DataGridViewTextBoxColumn";
-            // 
-            // 标准金额DataGridViewTextBoxColumn
-            // 
-            this.标准金额DataGridViewTextBoxColumn.DataPropertyName = "标准金额";
-            this.标准金额DataGridViewTextBoxColumn.HeaderText = "标准金额";
-            this.标准金额DataGridViewTextBoxColumn.Name = "标准金额DataGridViewTextBoxColumn";
-            // 
-            // 备注DataGridViewTextBoxColumn
-            // 
-            this.备注DataGridViewTextBoxColumn.DataPropertyName = "备注";
-            this.备注DataGridViewTextBoxColumn.HeaderText = "备注";
-            this.备注DataGridViewTextBoxColumn.Name = "备注DataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "备注";
+            this.dataGridViewTextBoxColumn24.HeaderText = "备注";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             // 
             // FormProjectBudget
             // 
@@ -977,16 +950,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XMBBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubProjectDetailGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PARTSSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1020,7 +991,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.BindingSource XMBBindingSource;
@@ -1060,28 +1030,27 @@
         private ProjectBudget.DataGridViewDataWindowColumn dataGridViewDataWindowColumn10;
         private DataSet1 dataSet1;
         private DataSet1TableAdapters.XMBTableAdapter xMBTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private DataSet1TableAdapters.PARTSTableAdapter pARTSTableAdapter;
         private DataSet1TableAdapters.GCBTableAdapter gCBTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 序号DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 项目名称DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 合计金额DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 楼层DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 房间DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridView SubProjectDetailGrid1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 项目名称DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 合计金额DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 序号DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 部件名称DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 材料DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 颜色;
         private System.Windows.Forms.DataGridViewTextBoxColumn 品牌;
         private System.Windows.Forms.DataGridViewTextBoxColumn 数量DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 单价DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 金额DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 材料DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 长度DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 宽度DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 厚度DataGridViewTextBoxColumn;
