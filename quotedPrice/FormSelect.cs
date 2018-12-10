@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace quotedPrice
 {
-    public partial class FormSelect : Form
+    public partial class FormSelect : frmBase
     {
         string conn = @"User ID=sa;Password=knfz@2013;Initial Catalog=luckyhouse;Data Source=192.168.1.15;";
         string id = "";

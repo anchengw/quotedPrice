@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace quotedPrice
 {
-    public partial class MainForm : Form
+    public partial class MainForm : frmBase
     {
         public MainForm()
         {

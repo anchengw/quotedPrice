@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace quotedPrice
 {
-    public partial class FormProjectBudget : Form
+    public partial class FormProjectBudget : frmBase
     {
         public FormProjectBudget()
         {

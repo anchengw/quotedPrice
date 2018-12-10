@@ -14,7 +14,7 @@ using quotedPrice.DataSet1TableAdapters;
 
 namespace quotedPrice
 {
-    public partial class FormPrint : Form
+    public partial class FormPrint : frmBase
     {
         string moban = "";
         public String[] ProjectKey { get; set;}

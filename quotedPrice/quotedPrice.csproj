@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>quotedPrice</RootNamespace>
     <AssemblyName>quotedPrice</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -54,6 +54,15 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1">
+      <HintPath>..\..\..\..\Program Files (x86)\DevExpress 18.1\Components\Bin\Framework\DevExpress.BonusSkins.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1">
+      <HintPath>..\..\..\..\Program Files (x86)\DevExpress 18.1\Components\Bin\Framework\DevExpress.Utils.v18.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1">
+      <HintPath>..\..\..\..\Program Files (x86)\DevExpress 18.1\Components\Bin\Framework\DevExpress.XtraBars.v18.1.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -147,6 +156,9 @@
     </Compile>
     <Compile Include="FormSelect.Designer.cs">
       <DependentUpon>FormSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBase.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrint));
             this.ProjectDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSet1 = new quotedPrice.DataSet1();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -62,9 +63,9 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(13, 12);
+            this.radioButton1.Location = new System.Drawing.Point(15, 14);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(71, 16);
+            this.radioButton1.Size = new System.Drawing.Size(73, 18);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "标准模板";
@@ -74,9 +75,9 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(90, 12);
+            this.radioButton2.Location = new System.Drawing.Point(105, 14);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 16);
+            this.radioButton2.Size = new System.Drawing.Size(73, 18);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.Text = "万科模板";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -90,15 +91,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(832, 39);
+            this.panel1.Size = new System.Drawing.Size(971, 45);
             this.panel1.TabIndex = 3;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(745, 9);
+            this.button1.Location = new System.Drawing.Point(869, 10);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(87, 27);
             this.button1.TabIndex = 2;
             this.button1.Text = "导出Excel";
             this.button1.UseVisualStyleBackColor = true;
@@ -112,10 +113,10 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "";
             this.reportViewer1.LocalReport.ShowDetailedSubreportMessages = false;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 39);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 45);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.ReportServerUrl = new System.Uri("", System.UriKind.Relative);
-            this.reportViewer1.Size = new System.Drawing.Size(832, 411);
+            this.reportViewer1.Size = new System.Drawing.Size(971, 480);
             this.reportViewer1.TabIndex = 4;
             // 
             // dataSet11
@@ -138,11 +139,12 @@
             // 
             // FormPrint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 450);
+            this.ClientSize = new System.Drawing.Size(971, 525);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPrint";
             this.Text = "FormPrint";
             this.Load += new System.EventHandler(this.FormPrint_Load);

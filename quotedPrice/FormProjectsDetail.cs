@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace quotedPrice
 {
-    public partial class FormProjectsDetail : Form
+    public partial class FormProjectsDetail : frmBase
     {
         public FormProjectsDetail()
         {
